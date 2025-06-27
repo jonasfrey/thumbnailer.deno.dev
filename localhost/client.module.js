@@ -345,7 +345,12 @@ let o = await f_o_html_from_o_js(
                         },
                         {
                             s_tag: "button",
-                            innerText: "Text",
+                            innerText: "+ ✏️",
+                            "v-on:click": `b_show_text = true;f_push_text()`,
+                        },
+                        {
+                            s_tag: "button",
+                            innerText: "edit ✏️",
                             "v-on:click": `b_show_text = true;`,
                         },
                         {
@@ -357,9 +362,8 @@ let o = await f_o_html_from_o_js(
                                 {
                                     s_tag: 'input', 
                                     type: 'text',
-                                    placeholder: 'Text',
                                     "v-model": "s_text",
-                                    'v-on:input': "if(o_item){o_item.s_text = s_text; f_update_text()}",
+                                    'v-on:input': "if(o_item){o_item.s_text = s_text;}",
                                 },
                                 {
                                     s_tag: "button",
@@ -392,7 +396,7 @@ let o = await f_o_html_from_o_js(
                                 {
                                     s_tag: "button",
                                     innerText: "Close",
-                                    "v-on:click": `b_show_text = false;f_update_text()`
+                                    "v-on:click": `b_show_text = false;`
                                 }
                             ]
                         },
@@ -548,33 +552,28 @@ const app = createApp({
             this.o_item.n_size_pixel_outline -= 3;
         }
     },
-    f_update_text: function(){
-        if(this?.o_item == null || this.o_item.s_text == ''){
-            let o_item = f_o_item(
-                    {
-                        s_text : this.s_text, 
-                        s_src_img : '',
-                        s_scl : 1,
-                        n_trn_x : window.innerWidth/2, 
-                        n_trn_y : window.innerHeight/2, 
-                        s_font_family : this.s_font_family, 
-                        s_color_bg : 'white', 
-                        s_color_font : 'black', 
-                        s_color_outline : 'black', 
-                        n_size_pixel_outline : 50, 
-                        n_scl_x_px_image : 0,
-                        n_scl_y_px_image : 0,
-                        n_scl_factor : 1,
-                    }
-            );
-            this.a_o_item.push(o_item);
-            this.o_item = o_item;
-        }
-        if(this.o_item.s_text != ''){
-            this.o_item.s_font_family = this.s_font_family;
-            this.o_item.s_text = this.s_text;
-        }
+    f_push_text: function(){
+        let o_item = f_o_item(
+                {
+                    s_text : this.s_text, 
+                    s_src_img : '',
+                    s_scl : 1,
+                    n_trn_x : window.innerWidth/2, 
+                    n_trn_y : window.innerHeight/2, 
+                    s_font_family : this.s_font_family, 
+                    s_color_bg : 'white', 
+                    s_color_font : 'black', 
+                    s_color_outline : 'black', 
+                    n_size_pixel_outline : 50, 
+                    n_scl_x_px_image : 0,
+                    n_scl_y_px_image : 0,
+                    n_scl_factor : 1,
+                }
+        );
+        this.a_o_item.push(o_item);
+        this.o_item = o_item;
     },
+
     f_delete_item: function(){
         if(confirm('Are you sure you want to delete this item?')){
             this.a_o_item.splice(this.a_o_item.indexOf(this.o_item), 1);
