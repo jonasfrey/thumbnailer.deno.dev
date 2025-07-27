@@ -538,7 +538,7 @@ const app = createApp({
     },
     f_scale_up: function(){
         if(this.o_item?.s_src_img != ''){
-            this.o_item.n_scl_factor += 0.01;
+            this.o_item.n_scl_factor += 0.02;
         }
         if(this.o_item?.s_text != ''){
             this.o_item.n_size_pixel_outline += 3;
@@ -546,7 +546,7 @@ const app = createApp({
     },
     f_scale_down: function(){
         if(this.o_item?.s_src_img != ''){
-            this.o_item.n_scl_factor -= 0.01;
+            this.o_item.n_scl_factor -= 0.02;
         }
         if(this.o_item?.s_text != ''){
             this.o_item.n_size_pixel_outline -= 3;
