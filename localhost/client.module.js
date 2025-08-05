@@ -26,6 +26,7 @@ let a_s_font_family = [
     'Arial',
     'Courier New',
     'ManuskriptGotisch',
+    'BLKCHCRY'
 ]
 f_add_css(
     `
@@ -33,6 +34,11 @@ f_add_css(
   @font-face {
     font-family: ManuskriptGotisch;
     src: url(./ManuskriptGotisch.ttf);
+  }
+
+    @font-face {
+    font-family: BLKCHCRY;
+    src: url(./BLKCHCRY.TTF);
   }
 
     body{
