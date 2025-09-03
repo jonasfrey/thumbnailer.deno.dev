@@ -23,17 +23,27 @@ let s_id_error_msg = 'error_msg'
 o_variables.n_rem_font_size_base = 1. // adjust font size, other variables can also be adapted before adding the css to the dom
 o_variables.n_rem_padding_interactive_elements = 0.5; // adjust padding for interactive elements 
 let a_s_font_family = [
+    'LeagueGothic-Regular',
     'Arial',
+    'UNCIAL__',
     'Courier New',
     'ManuskriptGotisch',
     'BLKCHCRY'
 ]
 f_add_css(
     `
-
+  @font-face {
+    font-family: LeagueGothic-Regular;
+    src: url(./LeagueGothic-Regular.ttf);
+  }
   @font-face {
     font-family: ManuskriptGotisch;
     src: url(./ManuskriptGotisch.ttf);
+  }
+
+      @font-face {
+    font-family: UNCIAL__;
+    src: url(./UNCIAL__.TTF);
   }
 
     @font-face {
